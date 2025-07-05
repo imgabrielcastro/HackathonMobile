@@ -1,15 +1,8 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  View,
-  Image,
-} from "react-native";
-import { Text, useTheme} from "react-native-paper";
+import { StyleSheet, View, Image } from "react-native";
+import { Text, useTheme } from "react-native-paper";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import * as Animatable from "react-native-animatable";
-
-
 
 const fitnessIcons = [
   "dumbbell",
@@ -28,7 +21,7 @@ const FitnessIconCarousel = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
+      setCurrentIndex((prevIndex) => 
         prevIndex === fitnessIcons.length - 1 ? 0 : prevIndex + 1
       );
     }, 3000);
@@ -62,12 +55,14 @@ export default function LoginHeader({ logoSource }: Props) {
   const { colors } = useTheme();
 
   return (
-    <View
-      style={[styles.mainContainer, { backgroundColor: colors.background }]}
-    >
+    <View style={[styles.mainContainer, { backgroundColor: colors.background }]}>
       <View style={styles.upperSection}>
         <View style={styles.containerLogo}>
-          <Image source={logoSource} style={styles.logo} resizeMode="contain" />
+          <Image 
+            source={logoSource} 
+            style={styles.logo} 
+            resizeMode="contain" 
+          />
         </View>
 
         <View style={styles.midContainer}>

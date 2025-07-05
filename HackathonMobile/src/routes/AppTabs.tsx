@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../screens/Home";
+import HomePage from "../screens/HomePage";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 const Tab = createBottomTabNavigator();
@@ -8,22 +8,22 @@ export function AppTabs() {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
-        name="ClientsTab"
-        component={Home}
+        name="HomePage"
+        component={HomePage}
         options={{
-          tabBarLabel: "Clientes",
-          tabBarIcon: () => <Icon name="people" color={"#666"} size={26} />,
+          tabBarLabel: "Home",
+          tabBarIcon: () => <Icon name="home" color={"#666"} size={26} />,
         }}
       />
 
-      <Tab.Screen
+     {/* <Tab.Screen
         name="ClientsTabs"
-        component={Home}
+        component={HomePage}
         options={{
-          tabBarLabel: "Teste",
+          tabBarLabel: "Clientes",
           tabBarIcon: () => <Icon name="people" color={"#666"} size={26} />,
-        }}
-      />
+        }} 
+      /> */}
     </Tab.Navigator>
   );
 }

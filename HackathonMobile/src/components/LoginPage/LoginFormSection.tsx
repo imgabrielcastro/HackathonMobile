@@ -1,28 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
 import { Text, TextInput, useTheme } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { AuthStackParamList } from '../../navigation/types';
 
-type Props = {
+export default function LoginFormSection({ onLogin, email, onBack }: {
   onLogin: () => void;
   email: string;
   onBack: () => void;
-};
-
-type RootStackParamList = {
-  Clients: undefined;
-};
-
-type LoginFormSectionNavigationProp = NativeStackNavigationProp<RootStackParamList>;
-
-const LoginFormSection: React.FC<Props> = ({ onLogin, email, onBack }) => {
+}) {
   const [showPassword, setShowPassword] = useState(false);
   const { colors } = useTheme();
-  const navigation = useNavigation<LoginFormSectionNavigationProp>();
+  const navigation = useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
 
   const handleLogin = () => {
+    onLogin();
     navigation.navigate("Home");
   }
 
@@ -93,7 +87,7 @@ const LoginFormSection: React.FC<Props> = ({ onLogin, email, onBack }) => {
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   loginContainer: {
@@ -124,5 +118,3 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
-
-export default LoginFormSection;

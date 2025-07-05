@@ -1,13 +1,21 @@
-import React from "react";
 import { StyleSheet, View, FlatList } from "react-native";
 import { useTheme, Text, Card, Avatar } from "react-native-paper";
 
 export default function ClientsContainer() {
+  const { colors } = useTheme();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.placeholderText}>
-        Edite este componente conforme necessário
-      </Text>
+    <View style={[styles.container, { backgroundColor: colors.primary }]}>
+      <FlatList
+        data={[]}
+        renderItem={() => null}
+        contentContainerStyle={styles.listContainer}
+        ListEmptyComponent={
+          <Text style={styles.placeholderText}>
+            Edite este componente conforme necessário
+          </Text>
+        }
+      />
     </View>
   );
 }
@@ -15,42 +23,15 @@ export default function ClientsContainer() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fafafa',
-    justifyContent: 'center',
-    alignItems: 'center',
     padding: 20,
+  },
+  listContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
   },
   placeholderText: {
     fontSize: 18,
     color: '#333',
     textAlign: 'center',
-  },
-  listContainer: {
-    flexGrow: 1,
-  },
-  card: {
-    marginVertical: 8,
-  },
-  cardHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-  },
-  cardInfo: {
-    flex: 1,
-  },
-  name: {
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  statusContainer: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  status: {
-    color: '#4CAF50',
-  },
-  gender: {
-    color: '#2196F3',
   },
 });

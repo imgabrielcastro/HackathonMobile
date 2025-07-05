@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { View, TouchableOpacity } from "react-native";
 import { Text, TextInput, useTheme } from "react-native-paper";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -9,14 +9,13 @@ type Props = {
   onContinue: (email: string) => void;
 };
 
-const EmailFormSection: React.FC<Props> = ({
+export default function EmailFormSection({
   checked,
   onToggleCheck,
   onContinue,
-}) => {
+}: Props) {
   const { colors } = useTheme();
   const [email, setEmail] = useState("");
-
 
   return (
     <View style={{ height: "40%", width: "100%" }}>
@@ -90,6 +89,4 @@ const EmailFormSection: React.FC<Props> = ({
       </View>
     </View>
   );
-};
-
-export default EmailFormSection;
+}
