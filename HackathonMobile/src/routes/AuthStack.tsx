@@ -1,14 +1,12 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LoginPage from "../screens/LoginPage";
-import { AppTabs } from "./AppTabs";
+import AppTabs from "./AppTabs";
 
 const Stack = createNativeStackNavigator();
 
-export default function AuthStack() {
+const AuthStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Login" component={LoginPage} />
       <Stack.Screen
         name="Home"
         component={AppTabs}
@@ -16,4 +14,6 @@ export default function AuthStack() {
       />
     </Stack.Navigator>
   );
-}
+};
+
+export default AuthStack;
