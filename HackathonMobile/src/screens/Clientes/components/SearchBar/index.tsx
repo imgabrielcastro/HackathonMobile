@@ -17,6 +17,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       style={{
         backgroundColor: "#fafafa",
         padding: 10,
+        paddingHorizontal: 15
       }}
     >
       <TextInput

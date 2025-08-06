@@ -7,7 +7,6 @@ import { faCalendar } from "@fortawesome/free-regular-svg-icons/faCalendar";
 import { faComments } from "@fortawesome/free-regular-svg-icons";
 import AgendaPage from "../screens/Agenda";
 import ChatPage from "../screens/Chat";
-import ClientesPage from "../screens/Clientes";
 import ClientesStack from "./ClientesStack";
 
 const Tab = createBottomTabNavigator();
@@ -18,12 +17,12 @@ const AppTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => {
-        const routeName = getFocusedRouteNameFromRoute(route) ?? '';
+        const routeName = getFocusedRouteNameFromRoute(route) ? getFocusedRouteNameFromRoute(route) : '';
         return {
           headerShown: false,
           tabBarLabelStyle: { fontWeight: 'bold', fontSize: 12 },
           tabBarStyle: [
-            route.name === 'Clientes' && routeName === 'PerfilCliente'
+            route.name === 'Clientes' || routeName === 'PerfilCliente'
               ? { display: 'none' }
               : {},
           ],
